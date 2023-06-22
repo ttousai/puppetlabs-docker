@@ -64,6 +64,8 @@ class docker::compose (
     } else {
       if $version =~ /2[.]\d+[.]\d+$/ {
         $version_prepath = 'v'
+      } else {
+        $version_prepath = ''
       }
 
       $docker_compose_url = "${base_url}/${version_prepath}${version}/docker-compose-${facts['kernel']}-${facts['os']['hardware']}${file_extension}"
